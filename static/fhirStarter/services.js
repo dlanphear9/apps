@@ -2,21 +2,19 @@ angular.module('fhirStarter').factory('fhirSettings', function($rootScope, oauth
 
   var servers = [
     {
-      name: 'Local FHIR dev server, oauth',
-      serviceUrl: 'http://localhost:9080',
+      name: 'SMART on FHIR (smartplatforms.org)',
+      serviceUrl: 'https://fhir-api.smartplatforms.org',
       auth: {
         type: 'oauth2',
       }
     }, {
-      name: "SMART on FHIR (smartplatforms.org)",
-      serviceUrl: "https://fhir-api.smartplatforms.org",
+      name: 'SMART on FHIR (smartplatforms.org), no auth',
+      serviceUrl: 'https://fhir-open-api.smartplatforms.org',
       auth: {
-        type: "basic",
-        username: "client",
-        password: "secret"
+        type: 'none'
       }
     }, {
-      name: 'SMART on FHIR (fhir.me)',
+      name: 'SMART on FHIR (fhir.me), basic auth',
       serviceUrl: 'https://api.fhir.me',
       auth: {
         type: 'basic',
@@ -32,20 +30,6 @@ angular.module('fhirStarter').factory('fhirSettings', function($rootScope, oauth
     }, {
       name: 'Furore Server (Ewout)',
       serviceUrl: 'http://spark.furore.com/fhir',
-      auth: {
-        type: 'none'
-      }
-    }, {
-      name: 'Local FHIR dev server, basic auth',
-      serviceUrl: 'http://localhost:9080',
-      auth: {
-        type: 'basic',
-        username: 'client',
-        password: 'secret'
-      }
-    }, {
-      name: 'Local FHIR dev server, no auth',
-      serviceUrl: 'http://localhost:9080',
       auth: {
         type: 'none'
       }
@@ -76,11 +60,6 @@ angular.module('fhirStarter').factory('oauth2', function($rootScope, $location) 
       return authorizing;
     },
     authorize: function(s){
-      // window.location.origin does not exist in some non-webkit browsers
-      if (!window.location.origin) {
-         window.location.origin = window.location.protocol+"//"+window.location.host;
-      }
-    
       var thisUri = window.location.origin + window.location.pathname +'/';
       thisUrl = thisUri.replace(/\/+$/, "/");
       // TODO : remove registration step
