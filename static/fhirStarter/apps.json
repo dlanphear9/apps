@@ -30,6 +30,12 @@
       "redirect_uri": "apps/fhir-demo/app/",
       "logo_uri": "http://www.hl7.org/implement/standards/fhir/assets/images/fhir-logo-www.png"
     }, {
+      "client_name": "MPR Monitor",
+      "client_id": "mpr_monitor",
+      "launch_uri": "https://mpr-monitor-fhir.smartplatforms.org/fhir-app/launch.html",
+      "redirect_uri": "https://mpr-monitor-fhir.smartplatforms.org/fhir-app/authorize.html",
+      "logo_uri": "https://mpr-monitor-fhir.smartplatforms.org/fhir-app/icon.png"
+    }, {
       "client_name": "Meducation",
       "client_id": "meducation",
       "launch_uri": "http://fhir.meducation.com/launch.html",
